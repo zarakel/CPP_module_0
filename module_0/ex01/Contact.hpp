@@ -17,7 +17,7 @@ class Contact
 		Contact( void );
 		~Contact( void );
 
-		void	write_contact(std::string input, int i);
+		void	write_contact( std::string input, int i );
 };
 
 #endif
