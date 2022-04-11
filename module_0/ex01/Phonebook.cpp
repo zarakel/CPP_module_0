@@ -22,11 +22,13 @@ void	Phonebook::general( void )
 	std::string	input;
 	Contact		rep[7];
 	int		i;
+	int		lock;
 
 	i = 0;
+	lock = 0;
+	rep[i].ID = 0;
 	while ( 1 )
 	{
-		rep[i].ID = 0;
 		std::cout << "Put your input : ";
 		std::getline ( std::cin, input );
 		std::string str1 ( input );
@@ -42,13 +44,19 @@ void	Phonebook::general( void )
 		}
 		else if ( str1.compare( str3 ) == 0 && i >= 1 )
 		{
-			SEARCH( rep, i );
+			if (lock == 7)
+				SEARCH( rep, lock );
+			else 
+				SEARCH( rep, i );
 			input.clear();
 		}
 		else if ( str1.compare( str4 ) == 0 )
 			exit( 1 );
 		if ( i >= 7 )
+		{
 			i = 0;
+			lock = 7;
+		}
 	}
 }
 
