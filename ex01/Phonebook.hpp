@@ -12,8 +12,8 @@ class Phonebook
 		~Phonebook( void );
 
 		void general( void );
-		void ADD( Contact rep[7], int i );
-		void SEARCH( Contact rep[7], int i );
+		void ADD( Contact rep[8], int i );
+		void SEARCH( Contact rep[8], int i );
 		void utility( std::string str );
 };
 

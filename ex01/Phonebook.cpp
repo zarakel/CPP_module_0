@@ -20,7 +20,7 @@ Phonebook::~Phonebook( void )
 void	Phonebook::general( void )
 {
 	std::string	input;
-	Contact		rep[7];
+	Contact		rep[8];
 	int		i;
 	int		lock;
 
@@ -42,9 +42,9 @@ void	Phonebook::general( void )
 			i++;
 			input.clear();
 		}
-		else if ( str1.compare( str3 ) == 0 && i >= 1 )
+		else if ( str1.compare( str3 ) == 0 && (i >= 1 || lock == 8))
 		{
-			if (lock == 7)
+			if (lock == 8)
 				SEARCH( rep, lock );
 			else 
 				SEARCH( rep, i );
@@ -52,15 +52,15 @@ void	Phonebook::general( void )
 		}
 		else if ( str1.compare( str4 ) == 0 )
 			exit( 1 );
-		if ( i >= 7 )
+		if ( i >= 8 )
 		{
 			i = 0;
-			lock = 7;
+			lock = 8;
 		}
 	}
 }
 
-void	Phonebook::ADD( Contact rep[7], int i )
+void	Phonebook::ADD( Contact rep[8], int i )
 {
 	std::string	input;
 	int		j;
@@ -84,7 +84,7 @@ void	Phonebook::ADD( Contact rep[7], int i )
 	return;
 }
 
-void	Phonebook::SEARCH( Contact rep[7], int i )
+void	Phonebook::SEARCH( Contact rep[8], int i )
 {
 	std::string input;
 	int y;
